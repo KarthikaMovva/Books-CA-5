@@ -1,0 +1,138 @@
+
+*{
+    margin: 0px;                  /**styling the page**/
+  }
+  .logo{
+    height: 5vh;
+  }
+  .navbar{
+   display: flex;
+   align-items: center;
+   height: 80px;
+   background-color: black;
+  
+  }
+  .title{
+    font-size: 130%;
+    color: rgb(233, 51, 51);
+  }
+  .register{
+  position: absolute;
+  right: 3%;
+  left: 90%;
+  padding: 10px;
+  top: 3%;
+  background-color: rgb(255, 204, 0);
+  cursor: pointer;
+  }
+  /* .pic{
+   margin-left: -50%;
+  } */
+  .table{
+    padding: 5%;
+    display: grid;
+    grid-template-columns: repeat(4,10%);
+    gap: 17%;
+  }
+  input{
+   width: 30%;
+   height: 30px;
+   margin-left: 20%;
+  }
+  .errors{
+    color: red;
+    text-align: center;
+    margin-left: 3%;
+  }
+  #Name,#Email,#Password,#RepeatePassword{
+    width: 30%;
+    height: 30px;
+    margin-left: 35%;
+    margin-bottom: 3%;
+  }
+  .form{
+    width: 50%;
+    padding: 30px;
+    margin-top: 5%;
+    margin-left: 20%;
+    box-shadow: 10px 10px 10px 10px grey;
+  }
+  .signup{
+    padding:10px 60px;
+    margin-left: 40%;
+    background-color: rgb(59, 204, 241);
+    border: 2px solid rgb(59, 204, 241);
+    border-radius: 3px;
+    cursor: pointer;
+   
+  }
+  .home{
+    padding: 10px;
+    background-color: rgb(255, 196, 0);
+    border: 1px solid rgb(255, 196, 0);
+    margin-left: 90%;
+    cursor: pointer;
+  }
+  .book{
+    margin-left: 10px;
+    width: 100%;
+    padding: 65%;
+    border-radius: 10px;
+    box-shadow: 10px 10px 10px 10px grey;
+    border-left: 10px solid red;
+  }
+  .final{
+    border: 1px solid black;
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 2%;
+    background-color: green;
+    border: 2px solid green;
+    color: white;
+    font-weight: 700;
+  }
+  @media screen and (max-width:700px){
+    .logo{                                           /**Making responsive**/
+      height: 4vh;
+    }
+    .navbar{
+      height: 50px;
+      width: 420px;
+     }
+     .title{
+       font-size: 70%;
+     }
+     .register{
+      position: absolute;
+      right: 1%;
+      left: 80%;
+      padding: 5px;
+      top: 1%;
+      }
+      input{
+        width: 30%;
+        height: 30px;
+        margin-left: 10px;
+       }
+       .table{
+        padding: 5%;
+        display: flex;
+        flex-direction: column;
+      }
+      .book{
+        margin-left: 10px;
+        width: 50%;
+        padding: 20%;
+      }
+      #Name,#Email,#Password,#RepeatePassword{
+        width: 80%;
+        height: 30px;
+        margin-left: 10%;
+        margin-bottom: 4%;
+      }
+      .signup{
+        padding:20px 20px;
+        margin-left: 1%; 
+      }
+    
+  }
