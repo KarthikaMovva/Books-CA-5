@@ -6,6 +6,7 @@ import { NavLink } from "react-router-dom";
 
 function Mainpage() {
   const [data, setdata] = useState(null);        /**A state to display data and search results */
+  const[searchresults,setsearchresults]=useState(null)
 
 
   useEffect(() => {
@@ -16,6 +17,7 @@ function Mainpage() {
           { headers: { Authorization: "whatever-you-want" } }
         );
         setdata(link.data);
+        setsearchresults(link.data)
       } catch (err) {
         console.log("error", err);
       }
@@ -25,13 +27,14 @@ function Mainpage() {
 
   const Accordingtoinput = (event) => {                    /**Filtering the data to display search results */
     const enterinput = event.target.value.toLowerCase();
-    if (data) {
-      const findresults = data.books.filter((k) => {
+      const findresults = searchresults.books.filter((k) => {
         return k.title.toLowerCase().startsWith(enterinput);
       });
-
-      setdata({books:findresults});
-    }
+      if(findresults.length===0){
+        setdata({books:[{title: "No Results Found",imageLinks:""}]})
+      }else{
+        setdata({books:findresults});
+      } 
   };
   return (
     <div>
@@ -59,7 +62,7 @@ function Mainpage() {
               <div key={id} className="book">
                 <img
                   src={eachbook.imageLinks.smallThumbnail}
-                  alt="" className="pic"
+                  alt="" className="pic" height="130px"
                 />
                 <p>{eachbook.title}</p>
               </div>
