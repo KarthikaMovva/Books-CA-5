@@ -4,10 +4,10 @@ import "../App.css";
 import { NavLink } from "react-router-dom";
 
 const forminputs = {
-  /**Initializing inputs */ Name: "",
-  Email: "",
-  Password: "",
-  RepeatePassword: "",
+  /**Initializing inputs */ Name: localStorage.getItem("Name")||"",
+  Email: localStorage.getItem("Email")||"",
+  Password: localStorage.getItem("Password")||"",        //If there is data in localstorage we can access it in input boxes even on page reload.
+  RepeatePassword: localStorage.getItem("RepeatePassword")||"",  //If there is no data in local storage empty input boxes are displayed.
 };
 
 const clickedregister = (storage) => {
@@ -82,9 +82,16 @@ const crossckeck = (stored) => {
 function Register() {
   const [finalclick, setfinalclick] = useState(false); //State to observe sign Up button
 
+  
   const recordclick = () => {
-    setfinalclick(true); //Switching the state when sign up button is clicked
-    console.log(formvalue.values);
+    setfinalclick(true);
+     //Switching the state when sign up button is clicked
+     if(numberoferrors===0){         // If there are no errors sending the user inputs to local storage.
+      for(let data in formvalue.values){
+        localStorage.setItem(data, formvalue.values[data])
+      }
+      console.log(formvalue.values);
+     }
   };
 
   const formvalue = useFormik({
@@ -92,6 +99,8 @@ function Register() {
     onSubmit: clickedregister,
     validate: crossckeck,
   });
+  const numberoferrors=Object.keys(formvalue.errors).length
+console.log(numberoferrors)
   return (
     <div>
       <NavLink to="/">
