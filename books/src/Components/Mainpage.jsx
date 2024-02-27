@@ -65,6 +65,7 @@ function Mainpage() {
                   alt="" className="pic" height="130px"
                 />
                 <p>{eachbook.title}</p>
+                <p className="cost">Free</p>
               </div>
             ))}
           </div>
